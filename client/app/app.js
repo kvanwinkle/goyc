@@ -6,6 +6,7 @@ angular.module('greenOutYourClosetApp', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap'
+  'oauth'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
