@@ -5,7 +5,15 @@ angular.module('greenOutYourClosetApp')
    
    $scope.getApi=function(){
 
-    alert("working");
+    	$http.get('/api/things')
+    		.success(function(data){
+    			console.log("sucess!");
+    			console.log(data);
+    		})
+    		.error(function(err){
+    			console.log("fail");
+    			console.log(err);
+    		})
 
    }
   });
