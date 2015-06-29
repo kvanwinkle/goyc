@@ -1,8 +1,11 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 
-<div  id="stream" class="container-fluid">
-	<div class="row"/>
+<div  id="stream">
+	<video id="webcam"></video>
+	<canvas id="capture" style="display:none;"></canvas>
+			<img id="canvasImg">
+	<!-- <div class="row"/>
 	<div class ="col-md-4">
 	<div id="instructions">
 		<h1> What is GOYC </h1>
@@ -16,8 +19,8 @@
 		</div>	
 		</div>	
  		</div>
-         
-      <button ng-click="getApi(); takeSnapshot()">
+          -->
+      <button ng-click="getApi(); streamVideo()" id="snapPicture">
           <span class="glyphicon glyphicon-camera" aria-hidden="true">
 
       </button>

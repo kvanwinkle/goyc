@@ -43,18 +43,10 @@ button {
     display: block; 
     position: absolute;
     bottom: 20px;
+    z-index: 300;
 
 }
 
-#stream {
-    background-color: aliceblue;
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 25px;
-    left: 0;
-}
 
 /* Instructions */
 
@@ -73,6 +65,52 @@ button {
     border-bottom-left-radius:5%;
     border-bottom-right-radius:5%;
     
+}
+
+/* photobooth */
+
+/*@media (min-aspect-ratio: 16/9) {
+ #webcam {
+    width: 100%;
+    height: auto;
+  }
+}
+ 
+@media (max-aspect-ratio: 16/9) {
+  #webcam {
+    width: auto;
+    height: 100%;
+  }
+}
+*/
+
+
+
+#stream {
+   
+    display: block;
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    top: 25px;
+    right:0;
+}
+
+#canvasImg {
+    
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 25px;
+    right:0;
+    z-index: 100;
+
+}
+ 
+#webcam {
+    width: 100%;
+    height: 100%;
 }
 
 .glyphicon-camera {
