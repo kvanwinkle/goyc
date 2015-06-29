@@ -1,12 +1,23 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Welcome to Green Out Your Closet </h1>
-          <div id="iconAbout"></div>
-      <button ng-click="getApi()">
+<div  id="stream" class="container-fluid">
+	<div class="row"/>
+	<div class ="col-md-4">
+	<div id="instructions">
+		<h1> What is GOYC </h1>
+		<p> Green out Your Closet is tool that allows you to find clothes that were made using a sustainable and humanitarian mindset. Follow the instructions to get started </p>  
+		<ol>
+			<li> Allow Green Out Your Closet access to your system webcam </li>
+			<li> Press the Camera button to take a picture of the clothes you are wearing </li>
+			<li> Once you have reviewed the picture press submit to find similar looking clothes that were produces in an ecofriendly and humane way. </li>
+			
+		</ol>
+		</div>	
+		</div>	
+ 		</div>
+         
+      <button ng-click="getApi(); takeSnapshot()">
           <span class="glyphicon glyphicon-camera" aria-hidden="true">
 
       </button>

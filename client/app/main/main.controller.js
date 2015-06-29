@@ -15,5 +15,14 @@ angular.module('greenOutYourClosetApp')
     			console.log(err);
     		})
 
+
+
    }
+
+   $scope.takeSnapshot = function(){
+    console.log("second function worked")
+    
+   }
+
+
   });
