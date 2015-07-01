@@ -33,7 +33,7 @@
     background-color: green;
 }
 
-button {
+#snapPicture {
     border: red 2px solid;
     background-color: aliceblue;
     color: red;
@@ -47,53 +47,40 @@ button {
 
 }
 
+#twoButtons {
+    position: absolute;
+    bottom: 20px;
+    margin-left: 50%;
+    margin-right: 50%;
+    z-index: 301;
+    display: none;
 
-/* Instructions */
 
-#instructions h1 {
-    margin: 10px;
 }
 
-#instructions {
-    padding: 20px;
-    position: absolute;
-    top: 25px;
-    left: 0;
-    border: 2px black;
-    background-color: red;
-    opacity: .5;
-    border-bottom-left-radius:5%;
-    border-bottom-right-radius:5%;
-    
+
+/* Sidebar */
+
+#sidebar {
+    width: 30%;
+}
+
+#sidebar h1, p, li {
+    padding: 10px;
+
 }
 
 /* photobooth */
 
-/*@media (min-aspect-ratio: 16/9) {
- #webcam {
-    width: 100%;
-    height: auto;
-  }
-}
- 
-@media (max-aspect-ratio: 16/9) {
-  #webcam {
-    width: auto;
-    height: 100%;
-  }
-}
-*/
-
-
-
 #stream {
    
     display: block;
+    background-color: #ccc;
     position: absolute;
-    width: 60%;
+    width: 70%;
     height: 100%;
-    top: 25px;
     right:0;
+    top:0;
 }
 
 #canvasImg {
@@ -102,17 +89,48 @@ button {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 25px;
+    top: 0;
     right:0;
     z-index: 100;
+    margin: 0;
+    border: none;
 
+}
+
+canvas {
+    border: none;
 }
  
 #webcam {
-    width: 100%;
-    height: 100%;
+    position: absolute; 
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto; 
+    background-size: cover;
+    overflow: hidden;
 }
 
 .glyphicon-camera {
     font-size: 3em;
+}
+
+#timer {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    display: none;
+}
+
+.timerDot {
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    background-color: red;
+    margin-right: 20px;
+    border-radius: 50%;
+    z-index: 1000;
+
 }
