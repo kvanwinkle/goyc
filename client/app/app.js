@@ -5,7 +5,8 @@ angular.module('greenOutYourClosetApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'oauth'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
@@ -13,7 +14,7 @@ angular.module('greenOutYourClosetApp', [
         redirectTo: '/'
       });
 
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true).hashPrefix('!');
     $httpProvider.interceptors.push('authInterceptor');
   })
 

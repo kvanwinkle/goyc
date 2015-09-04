@@ -12,12 +12,43 @@
 var _ = require('lodash');
 var Thing = require('./thing.model');
 
+
+var Client = require('node-rest-client').Client;
+var simple = require('xml-simple');
+
 // Get list of things
 exports.index = function(req, res) {
-  Thing.find(function (err, things) {
-    if(err) { return handleError(res, err); }
-    return res.json(200, things);
-  });
+  console.log("hi server");
+  
+  var client = new Client();
+
+  client.get("https://api.cloudsightapi.com/image_requests", function(data, response){
+            // parsed response body as js object 
+            console.log(data);
+            // raw response 
+           // console.log(response);
+        });
+
+
+
+  return res.json(200);
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 };
 
 // Get a single thing
