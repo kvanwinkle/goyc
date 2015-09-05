@@ -17,38 +17,35 @@ var Client = require('node-rest-client').Client;
 var simple = require('xml-simple');
 
 // Get list of things
-exports.index = function(req, res) {
+exports.create = function(req, res) {
   console.log("hi server");
+
+  console.log('body', req.body)
+  console.log('imageData', req.body.imageData); 
+  var data = req.body.imageData;
+
+  var args = {
+    'image_request[image]': 'dress.jpg',
+    'image_request[locale]': 'en-US',
+    headers:{
+      "Content-Type": "application/json",
+      "Authorization": "CloudSight 51RAGqz9_ED1ExMzVG4I7Q"
+      
+  } 
+  };
   
   var client = new Client();
 
-  client.get("https://api.cloudsightapi.com/image_requests", function(data, response){
+  client.post("https://api.cloudsightapi.com/image_requests", args, function(data, response){
             // parsed response body as js object 
-            console.log(data);
+            console.log('data', data);
             // raw response 
-           // console.log(response);
+           console.log('response',response);
         });
 
 
 
   return res.json(200);
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 };
 
 // Get a single thing
@@ -61,11 +58,8 @@ exports.show = function(req, res) {
 };
 
 // Creates a new thing in the DB.
-exports.create = function(req, res) {
-  Thing.create(req.body, function(err, thing) {
-    if(err) { return handleError(res, err); }
-    return res.json(201, thing);
-  });
+exports.index = function(req, res) {
+  
 };
 
 // Updates an existing thing in the DB.
