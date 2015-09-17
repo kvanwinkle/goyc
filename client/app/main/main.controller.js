@@ -3,6 +3,254 @@
 angular.module('greenOutYourClosetApp')
   .controller('MainCtrl', function ($scope, $http, imgur) {
 
+    $scope.findSomething = function(description){
+
+      //**********************************
+//**********************************
+
+// Assigning Variables
+
+//**********************************
+//**********************************
+
+    var description = description;
+
+    var descripArray = description.split(" ");
+
+    var tempGender;
+    var tempColor;
+    var tempType;
+    var tempDescription1;
+    var tempDescription2;
+
+    
+
+    console.log(descripArray);
+
+    
+
+    function assignVar () {
+
+      var possibleColors = ["black", "red", "green", "blue", "yellow", "white", "gray", "grey", "brown"];
+
+      var possibleTypes = ["t-shirt", "shirt", "dress", "shorts", "pants", "jeans", "romper", "hoodie", "tee", "suit", "jacket", "cardigan", "blouse"];
+
+      var possibleDescriptions = ["sleeveless", "longsleeve", "striped", "v-neck"];
+
+
+
+
+
+      for (var i = 0; i < descripArray.length; i++) {
+
+
+        if( descripArray[i] == "women's" || descripArray[i] == "men's") {
+
+          tempGender = descripArray[i];
+        }
+
+
+        for (var j = 0; j < possibleColors.length; j++) {
+           
+          if(descripArray[i] == possibleColors[j]) {
+            tempColor = descripArray[i];
+          }
+        };
+        
+        for (var k = 0; k < possibleTypes.length; k++) {
+           
+          if(descripArray[i] == possibleTypes[k]) {
+            tempType = descripArray[i];
+          }
+        };
+
+
+
+        if (descripArray[i] == "top") {
+            tempType = descripArray[i-1] + " " + descripArray[i];
+          }
+
+
+
+        if (descripArray[i] == "neck") {
+          tempDescription1 = descripArray[i-1] + " " + descripArray[i];
+        }
+
+
+
+        for (var l = 0; l < possibleDescriptions.length; l++) {
+           
+          if(descripArray[i] == possibleDescriptions[l]) {
+
+            
+             tempDescription2[i] = descripArray[i];
+          }
+
+
+        if (descripArray[i] == "sleeved"){
+
+          tempDescription2 = descripArray[i-1] + " " + descripArray[i];
+        }
+
+
+
+
+
+        };
+
+
+
+      };
+
+    };
+
+    assignVar();
+
+
+    console.log(tempGender);
+    console.log (tempColor);
+    console.log (tempType);
+    console.log(tempDescription1);
+    console.log(tempDescription2);
+    
+
+//**********************************
+//**********************************
+
+// Item Database
+
+//**********************************
+//**********************************
+
+    var database = [
+
+    // Reformation Items // 
+
+      {name:"Greenland Dress by Reformation",
+       gender: "women's",
+       type: "dress",
+       color: "black",
+       description: "long sleeved",
+       url: "https://www.thereformation.com/products/greenland-dress-black"
+      },
+
+
+      {name:"Greenland Dress by Reformation",
+       gender: "women's",
+       type: "dress",
+       color: "grey",
+       description: "long sleeved , oversized, mini",
+       url: "https://www.thereformation.com/products/greenland-dress-grey"
+      },
+
+      {name:"Women's Red Button Down",
+       gender: "women's",
+       type: "shirt",
+       color: "red",
+       description: "button down"
+      },
+
+
+      {name:"Men's Khahki Shorts",
+       gender: "men's",
+       type: "shorts",
+       color: "khaki",
+       description: " "
+      },
+
+
+      {name:"Men's Yellow T-shirt",
+       gender: "men's",
+       type: "t-shirt",
+       color: "yellow",
+       description: " "
+      },
+
+
+      
+
+      ];
+
+
+
+//**********************************
+//**********************************
+
+//Search Function
+
+//**********************************
+//**********************************
+
+
+
+
+      var goycDB = TAFFY(database);
+
+
+      var completeMatch = goycDB({gender: tempGender},{type: tempType},{color: tempColor},[{description: tempDescription2}, {description: tempDescription1}]).get();
+
+      
+        if (completeMatch.length !== 0) {
+
+          console.log(noDescription);
+          console.log(completeMatch[Math.floor(Math.random()*completeMatch.length)]);
+        }
+
+        else {
+
+          console.log("searching without description");
+
+          var noDescription = goycDB({gender: tempGender},{type: tempType},{color: tempColor}).get();
+
+          if (noDescription.length !== 0) {
+
+            console.log(noDescription);
+            console.log(noDescription[Math.floor(Math.random()*noDescription.length)]);
+          }
+
+          else {
+
+            console.log("searching without color");
+            var noColor = goycDB({gender: tempGender},{type: tempType}).get();
+
+            if ( noColor.length !== 0) {
+              console.log(noColor);
+              console.log(noColor[Math.floor(Math.random()*noColor.length)]);
+
+            }
+
+
+            else {
+
+              console.log ("finding random item");
+              var onlyGender = goycDB({gender: tempGender}).get();
+
+                if (onlyGender.length !== 0){
+
+                  console.log(onlyGender);
+                  console.log(onlyGender[Math.floor(Math.random()*onlyGender.length)])
+
+                }
+
+                else {
+                  console.log ("fuck");
+                }
+
+
+
+            }
+
+          }
+
+        }
+
+
+
+    }
+
+
+
+
 
     $scope.dataURLToBlob =  function(dataURL) {
     var BASE64_MARKER = ';base64,';
@@ -75,6 +323,7 @@ angular.module('greenOutYourClosetApp')
               console.log(data.name)
               alert(data.name);
               $scope.name = data.name;
+              $scope.findSomething($scope.name);
             }
         })
         .error(function(err){
