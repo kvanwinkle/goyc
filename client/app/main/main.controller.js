@@ -262,8 +262,7 @@ setTimeout(function(){
   document.getElementById('capture').style.display = 'block';
    document.getElementById('snapPicture').style.display = 'none';
     document.getElementById('twoButtons').style.display = 'inline';
-    $scope.dataUrl = dataURL[0];
-    console.log($scope.dataUrl);
+   
     imgur.setAPIKey('Client-ID 40dbfe0cfea73a7');
     // var image = dataURL.dataTransfer.files[0];
 
