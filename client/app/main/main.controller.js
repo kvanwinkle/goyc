@@ -1,30 +1,65 @@
 'use strict';
 
 angular.module('greenOutYourClosetApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, imgur) {
+
+
+    $scope.dataURLToBlob =  function(dataURL) {
+    var BASE64_MARKER = ';base64,';
+    if (dataURL.indexOf(BASE64_MARKER) == -1) {
+      var parts = dataURL.split(',');
+      var contentType = parts[0].split(':')[1];
+      var raw = decodeURIComponent(parts[1]);
+
+      return new Blob([raw], {type: contentType});
+    }
+
+    var parts = dataURL.split(BASE64_MARKER);
+    var contentType = parts[0].split(':')[1];
+    var raw = window.atob(parts[1]);
+    var rawLength = raw.length;
+
+    var uInt8Array = new Uint8Array(rawLength);
+
+    for (var i = 0; i < rawLength; ++i) {
+      uInt8Array[i] = raw.charCodeAt(i);
+    }
+
+    return new Blob([uInt8Array], {type: contentType});
+  }
 
   $http.defaults.headers.common.Authorization = 'CloudSight 51RAGqz9_ED1ExMzVG4I7Q'
 
-   $scope.getApi=function(){
+   $scope.getApi=function(remoteUrl){
       console.log($scope.dataUrl);
-      $scope.upload($scope.dataUrl);
-      
-     //  var args = {
+      // $scope.upload($scope.dataUrl);
+
+
+      // ************************************
+      //         Change Url Here
+      // ************************************
+
+      var args = {
        
-     //      locale: 'en-US',
-     //      remote_image_url: 'http://wachabuy.com/wp-content/uploads/2015/05/street-style-stripes-dress-@wachabuy.jpg'
-     //  }
+          locale: 'en-US',
+          remote_image_url: remoteUrl
+      }
+
+      // ************************************
+      //         End of URL Change
+      // ************************************
+
       
-    	// $http.post('https://api.cloudsightapi.com/image_requests', args)
-    	// 	.success(function(data){
-    	// 		console.log("sucess!");
-    	// 		console.log(data);
-     //      $scope.value(data.token)
-    	// 	})
-    	// 	.error(function(err){
-    	// 		console.log("fail");
-    	// 		console.log(err);
-    	// 	})
+    	$http.post('https://api.cloudsightapi.com/image_requests', args)
+    		.success(function(data){
+    			console.log("sucess!");
+    			console.log(data);
+          $scope.value(data.token)
+    		})
+    		.error(function(err){
+    			console.log("fail");
+    			console.log(err);
+    		})
 
 
 
@@ -37,7 +72,9 @@ angular.module('greenOutYourClosetApp')
           
           if(data.status !== 'completed'){$scope.value(token)}
             else{
-              console.log(data)
+              console.log(data.name)
+              alert(data.name);
+              $scope.name = data.name;
             }
         })
         .error(function(err){
@@ -216,14 +253,26 @@ setTimeout(function(){
   setTimeout(function(){
   
   context.drawImage(vidContainer, 0, 0, picture.width, picture.height);
-  var dataURL = picture.toDataURL("image/png", 0.0001);
+  console.log(picture)
+  var dataURL = picture.toDataURL("image/jpg", 0.0001);
+  var blob = $scope.dataURLToBlob(dataURL);
+  console.log(blob)
   document.getElementById('canvasImg').src = dataURL;
   document.getElementById('canvasImg').style.display = 'block';
   document.getElementById('capture').style.display = 'block';
    document.getElementById('snapPicture').style.display = 'none';
     document.getElementById('twoButtons').style.display = 'inline';
-    $scope.dataUrl = dataURL;
+    $scope.dataUrl = dataURL[0];
     console.log($scope.dataUrl);
+    imgur.setAPIKey('Client-ID 40dbfe0cfea73a7');
+    // var image = dataURL.dataTransfer.files[0];
+
+    imgur.upload(blob).then(function then(model) {
+      console.log('Your adorable cat be here: ' + model.link);
+      $scope.getApi(model.link);
+
+
+    });
 
 
 }, 700);

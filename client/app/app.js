@@ -6,7 +6,8 @@ angular.module('greenOutYourClosetApp', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap',
-  'oauth'
+  'oauth',
+  'ngImgur'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
