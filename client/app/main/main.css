@@ -63,10 +63,13 @@
 
 #sidebar {
     width: 30%;
+    position: relative;
+
 }
 
 #sidebar h1, p, li {
     padding: 10px;
+
 
 }
 
@@ -133,4 +136,110 @@ canvas {
     border-radius: 50%;
     z-index: 1000;
 
+}
+
+/********* Loading Screen ************/
+
+#loading {
+    margin: 0px auto;
+    text-align: center;
+    display: none;
+}
+
+
+#loadingBlocks {
+    position:absolute;
+    display: block;
+    margin: 0px auto;
+    left: 50%;  
+    margin-left: -50px;   
+}
+
+.barlittle {
+    background-color: #FF5050;
+    width: 10px;
+    height: 10px;
+    float: left;
+    margin-left: 5px;
+    opacity: 0.1;
+    -moz-transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    -moz-animation: move 1s infinite linear;
+    -webkit-animation: move 1s infinite linear;
+}
+
+#block_1 {
+    -moz-animation-delay: .6s;
+    -webkit-animation-delay: .6s;
+}
+
+#block_2 {
+    -moz-animation-delay: .4s;
+    -webkit-animation-delay: .4s;
+}
+
+#block_3 {
+    -moz-animation-delay: .2s;
+    -webkit-animation-delay: .2s;
+}
+
+#block_4 {
+    -moz-animation-delay: .3s;
+    -webkit-animation-delay: .3s;
+}
+
+#block_5 {
+    -moz-animation-delay: .4s;
+    -webkit-animation-delay: .4s;
+}
+
+@-moz-keyframes move {
+    0% {
+        -moz-transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        -moz-transform: scale(0.7);
+        opacity: 0.1;
+    };
+}
+
+@-webkit-keyframes move {
+    0% {
+        -webkit-transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(0.7);
+        opacity: 0.1;
+    };
+}
+
+/*
+*********** Match Screen **************/
+
+
+#match {
+    display:none;
+    
+}
+
+#match h1 , h3 {
+    text-align: center;
+}
+
+#matchPicture {
+
+    display: block;
+    height: 300px;
+    width: 60%;
+    margin: 0 auto;
+    background-color: blue;
+
+}
+
+#matchPicture img {
+    width: 100%;
 }

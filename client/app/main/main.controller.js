@@ -5,7 +5,7 @@ angular.module('greenOutYourClosetApp')
 
     $scope.findSomething = function(description){
 
-      //**********************************
+//**********************************
 //**********************************
 
 // Assigning Variables
@@ -33,7 +33,7 @@ angular.module('greenOutYourClosetApp')
 
       var possibleColors = ["black", "red", "green", "blue", "yellow", "white", "gray", "grey", "brown"];
 
-      var possibleTypes = ["t-shirt", "shirt", "dress", "shorts", "pants", "jeans", "romper", "hoodie", "tee", "suit", "jacket", "cardigan", "blouse"];
+      var possibleTypes = ["t-shirt", "shirt", "dress", "shorts", "pants", "jeans", "romper", "hoodie", "tee", "suit", "jacket", "cardigan", "blouse", "sweater"];
 
       var possibleDescriptions = ["sleeveless", "longsleeve", "striped", "v-neck"];
 
@@ -56,13 +56,22 @@ angular.module('greenOutYourClosetApp')
             tempColor = descripArray[i];
           }
         };
+
+        // Main type assignment //
         
         for (var k = 0; k < possibleTypes.length; k++) {
            
           if(descripArray[i] == possibleTypes[k]) {
             tempType = descripArray[i];
           }
+
         };
+
+        // Exceptions //
+
+        if (descripArray[i-1] == "t" && descripArray[i] == "shirt") {
+             tempType = "t-shirt";
+        }
 
 
 
@@ -71,12 +80,7 @@ angular.module('greenOutYourClosetApp')
           }
 
 
-
-        if (descripArray[i] == "neck") {
-          tempDescription1 = descripArray[i-1] + " " + descripArray[i];
-        }
-
-
+        // Main description assignments //
 
         for (var l = 0; l < possibleDescriptions.length; l++) {
            
@@ -87,10 +91,18 @@ angular.module('greenOutYourClosetApp')
           }
 
 
+        // Exceptions //   
+
+
         if (descripArray[i] == "sleeved"){
 
           tempDescription2 = descripArray[i-1] + " " + descripArray[i];
         }
+
+         if (descripArray[i] == "neck") {
+          tempDescription1 = descripArray[i-1] + " " + descripArray[i];
+        }
+
 
 
 
@@ -124,7 +136,82 @@ angular.module('greenOutYourClosetApp')
 
     var database = [
 
-    // Reformation Items // 
+
+    // Women's Shirts//
+
+        {name:"The Slouchy Cotton Slub V",
+          retailer: "Everlane",
+          retailerUrl: "https://www.everlane.com",
+          gender: "women's",
+          type: ["t-shirt", "shirt"],
+          color: "white",
+          description: "v neck",
+          image: "../assets/images/itemPictures/whiteVNeck",
+          url: "https://www.everlane.com/collections/womens-tees/products/womens-slouchy-cotton-slub-v-white",
+          details: "A casual and lightweight oversized V-neck tee in textured cotton with an elegant drape",
+          ecoCriteria : "Supply Chain Transparency: Everlane is an eccommerce retailer that sources the highest quality factories and displays all information about them on their website. Additionally they provide cost breakdowns of each item they produce."
+      },
+
+
+          {name:"The Slouchy Cotton Slub V",
+          retailer: "Everlane",
+          retailerUrl: "https://www.everlane.com",
+          gender: "women's",
+          type: ["t-shirt", "shirt"],
+          color: "grey",
+          description: "v neck",
+          image: "../assets/images/itemPictures/greyVNeck.png",
+          url: "https://www.everlane.com/collections/womens-tees/products/womens-slouchy-cotton-slub-v-light-grey",
+          details: "A casual and lightweight oversized V-neck tee in textured cotton with an elegant drape",
+          ecoCriteria : "Supply Chain Transparency: Everlane is an eccommerce retailer that sources the highest quality factories and displays all information about them on their website. Additionally they provide cost breakdowns of each item they produce."
+      },
+
+
+        {name:"The Silk Round Collar",
+          retailer: "Everlane",
+          retailerUrl: "https://www.everlane.com",
+          gender: "women's",
+          type: ["blouse" ,"shirt"],
+          color: "blue",
+          description: "button down",
+          image: "../assets/images/itemPictures/blueBlouse.png",
+          url: "https://www.everlane.com/collections/womens-tops/products/womens-silk-ls-round-navy-2",
+          details: "100% Silk—polished and simple with a round collar",
+          ecoCriteria : "Supply Chain Transparency: Everlane is an eccommerce retailer that sources the highest quality factories and displays all information about them on their website. Additionally they provide cost breakdowns of each item they produce."
+      },
+
+
+
+      {   name:"Organic cotton LITNB tee",
+          retailer: "Under the Canopy",
+          retailerUrl: "http://www.underthecanopy.com/",
+          gender: "women's",
+          type: ["t-shirt","shirt"],
+          color: "white",
+          description: "scoop neck",
+          image: "../assets/images/itemPictures/litnb.jpg",
+          url: "http://www.shopethica.com/clothing/under-the-canopy-organic-cotton-love-is-the-new-black-tee",
+          details: "Made from slub-cotton jersey, Under the Canopy’s Love Is The New Black tee has a textured, semi-sheer finish that gives it a slightly vintage look.",
+          ecoCriteria : "Under the Canopy collections are crafted with love and respect for the planet using organic and sustainable materials — such as certified organic cotton, ECOlyptus™ and RPET — with ethical manufacturing methods every step of the way. Our fashion and textiles are free of GMOs (genetically modified organisms) as well as toxic pesticides, herbicides, chemical fertilizers, formaldehyde and other harmful chemicals. Transparently tracked from farm to finished fashion, Under the Canopy products are certified fair trade, GOTS, and organic."
+      },
+
+      {   name:"Organic cotton One Love tee",
+          retailer: "Under the Canopy",
+          retailerUrl: "http://www.underthecanopy.com/",
+          gender: "women's",
+          type: ["t-shirt","shirt"],
+          color: "pink",
+          description: "scoop neck",
+          image: "../assets/images/itemPictures/oneLoveTee.jpg",
+          url: "http://www.shopethica.com/clothing/under-the-canopy-organic-cotton-one-love-tee",
+          details: "Yes, Under the Canopy’s organic slub-cotton tees feel as soft as they look–and they become even softer with wear. With the words “One Love” printed across the front, this pale pink style projects positivity.",
+          ecoCriteria : "Under the Canopy collections are crafted with love and respect for the planet using organic and sustainable materials — such as certified organic cotton, ECOlyptus™ and RPET — with ethical manufacturing methods every step of the way. Our fashion and textiles are free of GMOs (genetically modified organisms) as well as toxic pesticides, herbicides, chemical fertilizers, formaldehyde and other harmful chemicals. Transparently tracked from farm to finished fashion, Under the Canopy products are certified fair trade, GOTS, and organic."
+      },
+
+
+
+
+    // Women's Dresses // 
 
       {name:"Greenland Dress by Reformation",
        gender: "women's",
@@ -143,28 +230,32 @@ angular.module('greenOutYourClosetApp')
        url: "https://www.thereformation.com/products/greenland-dress-grey"
       },
 
-      {name:"Women's Red Button Down",
-       gender: "women's",
-       type: "shirt",
-       color: "red",
-       description: "button down"
+
+      // Women's Sweaters and Cardigans
+
+       {   name:"Organic cotton Cloud sweatshirt",
+          retailer: "Valentine Gauthier",
+          retailerUrl: "http://www.valentinegauthier.com/?lang=en",
+          gender: "women's",
+          type: ["sweatshirt","sweater"],
+          color: ["pink", "red", "blue"],
+          description: ["scoop neck", "long sleeved"],
+          image: "../assets/images/itemPictures/cloudSweatshirt.jpg",
+          url: "http://www.shopethica.com/clothing/valentine-gauthier-organic-cotton-cloud-sweatshirt",
+          details: "Sweatshirts are officially having a moment. The print on this soft, organic cotton style from Valentine Gauthier features hummingbirds and flowers, but a moody color scheme keeps it stylish, rather than overly sweet.",
+          ecoCriteria : "Organic Natural Fibers, Women Owned Factory, Fabrics sourced in the same country as production"
       },
 
 
-      {name:"Men's Khahki Shorts",
-       gender: "men's",
-       type: "shorts",
-       color: "khaki",
-       description: " "
-      },
 
 
-      {name:"Men's Yellow T-shirt",
-       gender: "men's",
-       type: "t-shirt",
-       color: "yellow",
-       description: " "
-      },
+
+
+      // Men's Shirts //
+
+
+
+      
 
 
       
@@ -187,53 +278,74 @@ angular.module('greenOutYourClosetApp')
       var goycDB = TAFFY(database);
 
 
-      var completeMatch = goycDB({gender: tempGender},{type: tempType},{color: tempColor},[{description: tempDescription2}, {description: tempDescription1}]).get();
+
+      var completeMatch = goycDB({gender: tempGender},{type:{like:tempType}},{color:{like:tempColor}},[{description:{like:tempDescription2}}, {description:{like:tempDescription1}}]).get();
 
       
         if (completeMatch.length !== 0) {
 
-          console.log(noDescription);
+          console.log(completeMatch);
           console.log(completeMatch[Math.floor(Math.random()*completeMatch.length)]);
+          $scope.match = completeMatch[Math.floor(Math.random()*completeMatch.length)];
         }
 
         else {
 
-          console.log("searching without description");
+          console.log("searching with description and no color!");
 
-          var noDescription = goycDB({gender: tempGender},{type: tempType},{color: tempColor}).get();
+          var descriptionNoColor = goycDB({gender: tempGender},{type:{like:tempType}},[{description:{like:tempDescription2}}, {description:{like:tempDescription1}}]).get();
 
-          if (noDescription.length !== 0) {
+          if (descriptionNoColor.length !== 0) {
 
-            console.log(noDescription);
-            console.log(noDescription[Math.floor(Math.random()*noDescription.length)]);
+            console.log(descriptionNoColor);
+            console.log(descriptionNoColor[Math.floor(Math.random()*descriptionNoColor.length)]);
+            $scope.match = descriptionNoColor[Math.floor(Math.random()*descriptionNoColor.length)];
           }
 
           else {
 
-            console.log("searching without color");
-            var noColor = goycDB({gender: tempGender},{type: tempType}).get();
+            console.log("searching with color and no description!");
+            var colorNoDescription = goycDB({gender: tempGender},{type:{like:tempType}},{color:{like:tempColor}}).get();
 
-            if ( noColor.length !== 0) {
-              console.log(noColor);
-              console.log(noColor[Math.floor(Math.random()*noColor.length)]);
+            if ( colorNoDescription.length !== 0) {
+              console.log(colorNoDescription);
+              console.log(colorNoDescription[Math.floor(Math.random()*colorNoDescription.length)]);
+              $scope.match = colorNoDescription[Math.floor(Math.random()*colorNoDescription.length)];
 
             }
 
 
             else {
 
-              console.log ("finding random item");
-              var onlyGender = goycDB({gender: tempGender}).get();
+              console.log ("searching only for type!");
+              var onlyType = goycDB({gender: tempGender},{type:{like:tempType}}).get();
 
-                if (onlyGender.length !== 0){
 
-                  console.log(onlyGender);
-                  console.log(onlyGender[Math.floor(Math.random()*onlyGender.length)])
+                if (onlyType.length !== 0){
+
+                  console.log(onlyType);
+                  console.log(onlyType[Math.floor(Math.random()*onlyType.length)])
+                  $scope.match = onlyType[Math.floor(Math.random()*onlyType.length)];
 
                 }
 
                 else {
-                  console.log ("fuck");
+                  console.log("finding random object of this gender");
+
+                  var randomItem = goycDB({gender: tempGender}).get();
+
+                    if (randomItem.length !== 0){
+
+                  console.log(randomItem);
+                  console.log(randomItem[Math.floor(Math.random()*randomItem.length)])
+                  $scope.match = randomItem[Math.floor(Math.random()*randomItem.length)];
+
+
+                }
+
+                else {
+
+                  console.log("we couldn't find a match :(");
                 }
 
 
@@ -244,9 +356,29 @@ angular.module('greenOutYourClosetApp')
 
         }
 
+      } 
 
 
-    }
+    };
+
+
+    $scope.displayMatch = function(match){
+        
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('match').style.display = 'block';
+        console.log(match);
+        console.log(match.name);
+        $scope.matchName = match.name;
+        $scope.matchDescription = match.details;
+        $scope.image = match.image;
+        $scope.matchLink = match.url;
+        $scope.matchRetailer = match.retailer;
+        $scope.matchRetailerUrl = match.retailerUrl;
+        $scope.matchEco = match.ecoCriteria;
+
+
+
+    };
 
 
 
@@ -279,13 +411,11 @@ angular.module('greenOutYourClosetApp')
   $http.defaults.headers.common.Authorization = 'CloudSight 51RAGqz9_ED1ExMzVG4I7Q'
 
    $scope.getApi=function(remoteUrl){
+
+
       console.log($scope.dataUrl);
       // $scope.upload($scope.dataUrl);
 
-
-      // ************************************
-      //         Change Url Here
-      // ************************************
 
       var args = {
        
@@ -293,21 +423,17 @@ angular.module('greenOutYourClosetApp')
           remote_image_url: remoteUrl
       }
 
-      // ************************************
-      //         End of URL Change
-      // ************************************
-
       
-    	$http.post('https://api.cloudsightapi.com/image_requests', args)
-    		.success(function(data){
-    			console.log("sucess!");
-    			console.log(data);
+      $http.post('https://api.cloudsightapi.com/image_requests', args)
+        .success(function(data){
+          console.log("sucess!");
+          console.log(data);
           $scope.value(data.token)
-    		})
-    		.error(function(err){
-    			console.log("fail");
-    			console.log(err);
-    		})
+        })
+        .error(function(err){
+          console.log("fail");
+          console.log(err);
+        })
 
 
 
@@ -318,12 +444,24 @@ angular.module('greenOutYourClosetApp')
       $http.get('https://api.cloudsightapi.com/image_responses/' + token)
         .success(function(data){
           
-          if(data.status !== 'completed'){$scope.value(token)}
+          
+          if(data.status !== 'completed'){
+            
+           setTimeout(function(){ $scope.value(token);}, 1000);
+
+
+          }
+            
             else{
               console.log(data.name)
               alert(data.name);
               $scope.name = data.name;
               $scope.findSomething($scope.name);
+              $scope.displayMatch($scope.match);
+
+             
+
+            
             }
         })
         .error(function(err){
@@ -434,8 +572,8 @@ function picCapture(){
     context = picture.getContext('2d');
   
     
-  picture.width = "250";
-  picture.height = "175";
+  picture.width = "600";
+  picture.height = "400";
 
  document.getElementById('timer').style.display = 'inline' ;
 
@@ -451,7 +589,7 @@ function picCapture(){
     document.getElementById('six').style.display = 'none';
     
 
-   } ,100); 
+   } ,500); 
 
 
    setTimeout(function(){
@@ -460,7 +598,7 @@ function picCapture(){
     document.getElementById('five').style.display = 'none';
     
 
-   } ,200); 
+   } ,1000); 
 
 
    setTimeout(function(){
@@ -469,7 +607,7 @@ function picCapture(){
     document.getElementById('four').style.display = 'none';
     
 
-   } ,300); 
+   } ,1500); 
 
 setTimeout(function(){
 
@@ -477,7 +615,7 @@ setTimeout(function(){
     document.getElementById('three').style.display = 'none';
     
 
-   } ,400); 
+   } ,2000); 
 
 
 setTimeout(function(){
@@ -486,7 +624,7 @@ setTimeout(function(){
     document.getElementById('two').style.display = 'none';
     
 
-   } ,500); 
+   } ,2500); 
 
 // END OF SECTION THAT NEEDS TO BE SET UP IN FOR LOOP //
 
@@ -497,20 +635,23 @@ setTimeout(function(){
     document.getElementById('one').style.display = 'none';
     
 
-   } ,600); 
+   } ,3000); 
 
   setTimeout(function(){
   
   context.drawImage(vidContainer, 0, 0, picture.width, picture.height);
   console.log(picture)
-  var dataURL = picture.toDataURL("image/jpg", 0.0001);
+  var dataURL = picture.toDataURL("image/jpg");
   var blob = $scope.dataURLToBlob(dataURL);
   console.log(blob)
   document.getElementById('canvasImg').src = dataURL;
   document.getElementById('canvasImg').style.display = 'block';
   document.getElementById('capture').style.display = 'block';
    document.getElementById('snapPicture').style.display = 'none';
-    document.getElementById('twoButtons').style.display = 'inline';
+    // document.getElementById('twoButtons').style.display = 'inline';
+
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('instructions').style.display = "none";
    
     imgur.setAPIKey('Client-ID 40dbfe0cfea73a7');
     // var image = dataURL.dataTransfer.files[0];
@@ -523,7 +664,7 @@ setTimeout(function(){
     });
 
 
-}, 700);
+}, 3500);
 
 
 }

@@ -3,17 +3,51 @@
 <div id="sidebar">
 
 	
-		<h1> What is GOYC </h1>
-		<button ng-click="getApi()" id="submit">
-          	Submit
-		<p> Green out Your Closet is tool to educate consumers about the importance of supply chain transparency in the fashion industry and provide access to sustainably made clothing. </p>  
+		<div id="instructions">
+		<h1> Are you ready to <br> Green Out Your Closet? </h1>
+		
 		<ol>
 			<li> Allow Green Out Your Closet access to your system webcam. </li>
 			<li> Press the Camera button to take a picture of the clothes you are wearing. </li>
 			<li> Once you have reviewed the picture press submit to find similar looking clothes that were produced in an ecofriendly and humane way. </li>
-			<li ng-model="name">{{name}}</li>
+			
 			
 		</ol>
+
+	</div>
+
+	<div id="loading">
+
+		<h1> We're searching our closet to find something you'll love </h1>
+
+
+
+	<div id="loadingBlocks">
+		<div id="block_1" class="barlittle"></div>
+		<div id="block_2" class="barlittle"></div>
+		<div id="block_3" class="barlittle"></div>
+		<div id="block_4" class="barlittle"></div>
+		<div id="block_5" class="barlittle"></div>
+	</div>
+
+	</div>
+
+	<div id="match">
+		<h1 ng-model="matchName"> {{matchName}}</h1>
+			<h3 ng-model = "matchRetailer"> {{matchRetailer}} </h3>
+	
+		<div id="matchPicture"></div>
+		<img ng-src={{image}}/>
+
+
+		<p ng-model="matchDescription"> <strong> description:  </strong> {{ matchDescription }} </p>
+
+		<p ng-model="matchEco"> <strong> Why it's better: </strong> {{matchEco}} </p>
+
+		<a ng-href="{{matchUrl}}"> Buy </a>
+
+	</div>	
+
 			
  		</div>
           
@@ -31,7 +65,7 @@
 
       </button>
 
-      <div id="twoButtons">
+      <!-- <div id="twoButtons">
       	<button ng-click="getApi()" id="submit">
           	Submit
 
@@ -41,7 +75,7 @@
           	
 
       </button>
-      		</div>
+      		</div> -->
 
        <div id="timer">
        		<div id="one" class="timerDot"></div>
