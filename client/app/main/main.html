@@ -32,19 +32,22 @@
 
 	</div>
 
-	<div id="match">
+	<div id="match" style="display:block;">
 		<h1 ng-model="matchName"> {{matchName}}</h1>
 			<h3 ng-model = "matchRetailer"> {{matchRetailer}} </h3>
 	
-		<div id="matchPicture"></div>
-		<img ng-src={{image}}/>
+		<div id="matchPicture">
+		<img ng-src="{{image}}"/>
+		</div>
 
 
 		<p ng-model="matchDescription"> <strong> description:  </strong> {{ matchDescription }} </p>
 
 		<p ng-model="matchEco"> <strong> Why it's better: </strong> {{matchEco}} </p>
 
-		<a ng-href="{{matchUrl}}"> Buy </a>
+	<p style="text-align:center;">
+		<a ng-href="{{matchLink}}" target="_blank"> Buy </a>
+	</p>
 
 	</div>	
 

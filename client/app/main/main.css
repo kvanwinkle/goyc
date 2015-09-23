@@ -236,10 +236,19 @@ canvas {
     height: 300px;
     width: 60%;
     margin: 0 auto;
-    background-color: blue;
+   
 
 }
 
 #matchPicture img {
-    width: 100%;
+    height: 100%;
+    width: auto;
+    vertical-align: center;
+    margin: 0px auto;
+}
+
+#match a {
+    margin: 0px auto;
+    font-size: 30px;
+    color:#FF5050;
 }

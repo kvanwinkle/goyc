@@ -13,7 +13,7 @@ angular.module('greenOutYourClosetApp')
 //**********************************
 //**********************************
 
-    var description = description;
+    var description = "women's white scoop neck t shirt";
 
     var descripArray = description.split(" ");
 
@@ -146,7 +146,7 @@ angular.module('greenOutYourClosetApp')
           type: ["t-shirt", "shirt"],
           color: "white",
           description: "v neck",
-          image: "../assets/images/itemPictures/whiteVNeck",
+          image: "https://everlane.imgix.net/i/fd064c55_810f.jpg",
           url: "https://www.everlane.com/collections/womens-tees/products/womens-slouchy-cotton-slub-v-white",
           details: "A casual and lightweight oversized V-neck tee in textured cotton with an elegant drape",
           ecoCriteria : "Supply Chain Transparency: Everlane is an eccommerce retailer that sources the highest quality factories and displays all information about them on their website. Additionally they provide cost breakdowns of each item they produce."
@@ -160,7 +160,7 @@ angular.module('greenOutYourClosetApp')
           type: ["t-shirt", "shirt"],
           color: "grey",
           description: "v neck",
-          image: "../assets/images/itemPictures/greyVNeck.png",
+          image: "https://everlane.imgix.net/i/f79509b1_fa17.jpg",
           url: "https://www.everlane.com/collections/womens-tees/products/womens-slouchy-cotton-slub-v-light-grey",
           details: "A casual and lightweight oversized V-neck tee in textured cotton with an elegant drape",
           ecoCriteria : "Supply Chain Transparency: Everlane is an eccommerce retailer that sources the highest quality factories and displays all information about them on their website. Additionally they provide cost breakdowns of each item they produce."
@@ -174,8 +174,7 @@ angular.module('greenOutYourClosetApp')
           type: ["blouse" ,"shirt"],
           color: "blue",
           description: "button down",
-          image: "../assets/images/itemPictures/blueBlouse.png",
-          url: "https://www.everlane.com/collections/womens-tops/products/womens-silk-ls-round-navy-2",
+          image: "https://everlane-2.imgix.net/i/c34545ef_5708.jpg?w=442&h=442&q=65&dpr=1",
           details: "100% Silk—polished and simple with a round collar",
           ecoCriteria : "Supply Chain Transparency: Everlane is an eccommerce retailer that sources the highest quality factories and displays all information about them on their website. Additionally they provide cost breakdowns of each item they produce."
       },
@@ -184,12 +183,12 @@ angular.module('greenOutYourClosetApp')
 
       {   name:"Organic cotton LITNB tee",
           retailer: "Under the Canopy",
-          retailerUrl: "http://www.underthecanopy.com/",
+          retailerUrl: "http://www.underthecanopy.com",
           gender: "women's",
           type: ["t-shirt","shirt"],
           color: "white",
           description: "scoop neck",
-          image: "../assets/images/itemPictures/litnb.jpg",
+          image: "http://shopethica.vaesite.net/__data/ethica_utc_the_new_black_tee_a.jpg",
           url: "http://www.shopethica.com/clothing/under-the-canopy-organic-cotton-love-is-the-new-black-tee",
           details: "Made from slub-cotton jersey, Under the Canopy’s Love Is The New Black tee has a textured, semi-sheer finish that gives it a slightly vintage look.",
           ecoCriteria : "Under the Canopy collections are crafted with love and respect for the planet using organic and sustainable materials — such as certified organic cotton, ECOlyptus™ and RPET — with ethical manufacturing methods every step of the way. Our fashion and textiles are free of GMOs (genetically modified organisms) as well as toxic pesticides, herbicides, chemical fertilizers, formaldehyde and other harmful chemicals. Transparently tracked from farm to finished fashion, Under the Canopy products are certified fair trade, GOTS, and organic."
@@ -202,7 +201,7 @@ angular.module('greenOutYourClosetApp')
           type: ["t-shirt","shirt"],
           color: "pink",
           description: "scoop neck",
-          image: "../assets/images/itemPictures/oneLoveTee.jpg",
+          image: "http://shopethica.vaesite.net/__data/ethica_utc_pink-one_love_tee_a.jpg",
           url: "http://www.shopethica.com/clothing/under-the-canopy-organic-cotton-one-love-tee",
           details: "Yes, Under the Canopy’s organic slub-cotton tees feel as soft as they look–and they become even softer with wear. With the words “One Love” printed across the front, this pale pink style projects positivity.",
           ecoCriteria : "Under the Canopy collections are crafted with love and respect for the planet using organic and sustainable materials — such as certified organic cotton, ECOlyptus™ and RPET — with ethical manufacturing methods every step of the way. Our fashion and textiles are free of GMOs (genetically modified organisms) as well as toxic pesticides, herbicides, chemical fertilizers, formaldehyde and other harmful chemicals. Transparently tracked from farm to finished fashion, Under the Canopy products are certified fair trade, GOTS, and organic."
@@ -240,7 +239,7 @@ angular.module('greenOutYourClosetApp')
           type: ["sweatshirt","sweater"],
           color: ["pink", "red", "blue"],
           description: ["scoop neck", "long sleeved"],
-          image: "../assets/images/itemPictures/cloudSweatshirt.jpg",
+          image: "http://shopethica.vaesite.net/__data/organic-cotton-cloud-sweatshirt-valentine-gauthier.1.jpg",
           url: "http://www.shopethica.com/clothing/valentine-gauthier-organic-cotton-cloud-sweatshirt",
           details: "Sweatshirts are officially having a moment. The print on this soft, organic cotton style from Valentine Gauthier features hummingbirds and flowers, but a moody color scheme keeps it stylish, rather than overly sweet.",
           ecoCriteria : "Organic Natural Fibers, Women Owned Factory, Fabrics sourced in the same country as production"
